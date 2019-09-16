@@ -1,0 +1,32 @@
+# OSX
+**/.DS_Store
+notebooks/.DS_Store
+
+# vim swap if undeleted
+*.swp
+*/*.swp
+*/*~
+
+#python and jupyter
+*.py[cod]
+*$py.class
+__pycache__/
+.ipynb_checkpoints/
+
+# Idea IntelliJ
+.idea
+out
+*.iml
+*.ipr
+*.iws
+*.log
+
+# large datasets and output files
+data/
+
+# logs
+log/
+
+# other
+aws/
+
