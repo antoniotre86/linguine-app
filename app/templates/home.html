@@ -9,6 +9,18 @@
 <h1>
     Linguine app
 </h1>
-<p>Hello <font color="red">linguine!</font></p>
+<p>Type a word below and I will tell you if it is English or Italian.</font></p>
+
+<form method="POST">
+    <input name="text">
+    <input type="submit">
+</form>
+
+{% if prediction %}
+  <p>The word "{{ input }}" looks like {{ prediction }}. <br>(score: {{ score }})</p>
+{% else %}
+  <p> </p>
+{% endif %}
+
 </body>
 </html>
