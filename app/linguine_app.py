@@ -29,5 +29,17 @@ def form_post():
     return out
 
 
+@app.route("/predict/<word>")
+def predict_word(word):
+    prediction = Model.predict_word(word)
+    prediction.update({'input': word})
+    out = {
+        'input': word,
+        'prediction': prediction['prediction'],
+        'score': prediction['score']
+    }
+    return render_template('home.html', **out)
+
+
 # if __name__ == "__main__":
 #     app.run(host='0.0.0.0')
