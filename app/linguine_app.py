@@ -26,7 +26,7 @@ def form_post():
         'prediction': prediction['prediction'],
         'score': prediction['score']
     }
-    return render_template('home.html', **out)
+    return out
 
 
 # if __name__ == "__main__":
