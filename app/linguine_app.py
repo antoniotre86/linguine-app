@@ -26,7 +26,7 @@ def form_post():
         'prediction': prediction['prediction'],
         'score': prediction['score']
     }
-    return out
+    return render_template('home.html', **out)
 
 
 @app.route("/predict/<word>")
