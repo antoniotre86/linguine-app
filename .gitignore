@@ -29,4 +29,6 @@ log/
 
 # other
 aws/
+venv/
+venv1/
 
