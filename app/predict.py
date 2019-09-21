@@ -3,16 +3,15 @@ Created on 2019-09-17
 
 @author: trentaa
 '''
-from keras.models import load_model
-from keras.preprocessing.sequence import pad_sequences
-
 import json
 
+from tensorflow.python.keras.models import load_model
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-MODEL_FILE = './static/models/weights-1.01.hdf5'
+MODEL_FILE = './static/models/weights-2.10.hdf5'
 VOCAB_FILE = './static/model-data/vocab.json'
 MAX_LEN_WORD = 45
-MODEL_RANGE = [-1.0, 1.0]
+MODEL_RANGE = [0.0, 1.0]
 
 
 def load_vocab(filename):
