@@ -28,7 +28,7 @@ class Model(object):
 
     @classmethod
     def predict_word(cls, word):
-        prediction = cls._get_prediction_for_word(word)
+        prediction = cls._get_prediction_for_word(word.lower())
         p = prediction[0][0]
         threshold = (MODEL_RANGE[1] - MODEL_RANGE[0]) / 2.0
         out = {
