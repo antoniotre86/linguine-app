@@ -9,7 +9,7 @@
 <h1>
     Linguine app
 </h1>
-<p>Type a word below and I will tell you if it is English or Italian.</font></p>
+<p>Type a word below and I will tell you if it sounds English or Italian.</font></p>
 
 <form method="POST">
     <input name="text">
@@ -17,7 +17,7 @@
 </form>
 
 {% if prediction %}
-  <p>The word "{{ input }}" looks like {{ prediction }}. <br>(score: {{ score }})</p>
+  <p>The word "{{ input }}" sounds like {{ prediction }}. <br>(score: {{ score }})</p>
 {% else %}
   <p> </p>
 {% endif %}

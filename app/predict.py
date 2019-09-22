@@ -33,7 +33,7 @@ class Model(object):
         threshold = (MODEL_RANGE[1] - MODEL_RANGE[0]) / 2.0
         out = {
             'prediction': 'English' if p > threshold else 'Italian',
-            'score': str(p)
+            'score': p
         }
         return out
 

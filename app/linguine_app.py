@@ -13,20 +13,24 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 
 @app.route("/", methods=['POST'])
 def form_post():
-    text = request.form['text']
-    prediction = Model.predict_word(text)
-    prediction.update({'input':text})
+    word = request.form['text']
+    prediction = Model.predict_word(word)
+    prediction.update({'input': word})
+    pred_language = prediction['prediction']
+    score = prediction['score']
+    confidence = (1-score if pred_language == 'Italian' else score) * 100
     out = {
-        'input': text,
-        'prediction': prediction['prediction'],
-        'score': prediction['score']
+        'input': word,
+        'prediction': pred_language,
+        'score': '{}'.format(score),
+        'confidence': '{:0.3g}%'.format(confidence)
     }
-    return render_template('home.html', **out)
+    return render_template('result.html', **out)
 
 
 @app.route("/predict/<word>")
@@ -36,10 +40,7 @@ def predict_word(word):
     out = {
         'input': word,
         'prediction': prediction['prediction'],
-        'score': prediction['score']
+        'score': str(prediction['score'])
     }
-    return render_template('home.html', **out)
+    return out
 
-
-# if __name__ == "__main__":
-#     app.run(host='0.0.0.0')
