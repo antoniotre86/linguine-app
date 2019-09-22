@@ -19,7 +19,12 @@ def home():
 @app.route("/", methods=['POST'])
 def form_post():
     word = request.form['text']
-    prediction = Model.predict_word(word)
+
+    try:
+        prediction = Model.predict_word(word)
+    except ValueError:
+        return render_template('index.html', error=True, input=word)
+
     prediction.update({'input': word})
     pred_language = prediction['prediction']
     score = prediction['score']
