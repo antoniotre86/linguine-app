@@ -16,14 +16,19 @@ def home():
     return render_template('index.html')
 
 
-@app.route("/", methods=['POST'])
+@app.route("/linguine")
+def linguine():
+    return render_template('linguine.html')
+
+
+@app.route("/linguine", methods=['POST'])
 def form_post():
     word = request.form['text']
 
     try:
         prediction = Model.predict_word(word)
     except ValueError:
-        return render_template('index.html', error=True, input=word)
+        return render_template('linguine.html', error=True, input=word)
 
     prediction.update({'input': word})
     pred_language = prediction['prediction']

@@ -17,30 +17,45 @@ Released   : 20140330
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
-<link href="../static/style/result.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../static/style/default.css" rel="stylesheet" type="text/css" media="all" />
 <link href="../static/style/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
 </head>
 <body>
-{% if prediction == "Italian" %}
-	<div id="header-wrapper-ita">
-{% else %}
-	<div id="header-wrapper-eng">
-{% endif %}
-		<div id="banner" class="container">
-			<div class="title">
-				<h2></h2>
-				<span class="byline">The word "{{ input }}" sounds like {{ prediction }} (confidence: {{ confidence }})</span>
-			</div>
-				<a href="/linguine">Back</a>
-			<div>
+<div id="header-wrapper">
+	<!--<div id="header" class="container">-->
+		<!--<div id="logo">-->
+			<!--<h1><a href="#"></a></h1>-->
+		<!--</div>-->
+	<!--</div>-->
+	<div id="banner" class="container">
+		<div id="menu">
+			<ul>
+				<li class="active"><a href="/">Home</a></li>
+			</ul>
+		</div>
+		<div class="title">
+			<h2></h2>
+			<span class="byline">Type a word below and I will tell you if it sounds English or Italian.</span>
+		</div>
+		{% if error %}
+		<p><font color="red">Sorry, the word "{{ input }}" contains characters not allowed. Try something different.</font></p>
+		{% endif %}
+		<ul class="actions">
+			<form method="POST">
+				<li><input type="text" id="text" name="text" class="input_text" /></li>
+				<br>
+				<li><input type="submit" class="button"></li>
+			</form>
 
-			</div>
+		</ul>
+		<div>
+
 		</div>
 	</div>
-
+</div>
 <!--<div id="wrapper">-->
 	<!--<div id="three-column" class="container">-->
 		<!--<div class="title">-->
@@ -74,6 +89,7 @@ Released   : 20140330
 	<!--</div>-->
 <!--</div>-->
 <div id="copyright" class="container">
+	<p>Created by <a href="www.linkedin.com/in/antonio-trenta">Antonio Trenta</a></p>
 	<p>&copy; Untitled. All rights reserved.
 		| Photos by Garry Knight, Jonathan Bean
 		| Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
